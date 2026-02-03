@@ -1,0 +1,344 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Me with Sats ⚡</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+      
+      .container {
+        background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        border-radius: 20px;
+        padding: 40px;
+        max-width: 500px;
+        width: 100%;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        border: 1px solid rgba(255, 165, 0, 0.2);
+      }
+      
+      .header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      
+      .header h1 {
+        color: #fbbf24;
+        font-size: 32px;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+      
+      .header p {
+        color: #cbd5e1;
+        font-size: 16px;
+      }
+      
+      .amount-section {
+        margin-bottom: 30px;
+      }
+      
+      .amount-label {
+        color: #94a3b8;
+        font-size: 14px;
+        margin-bottom: 15px;
+        display: block;
+      }
+      
+      .amount-buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-bottom: 15px;
+      }
+      
+      .amount-btn {
+        background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        color: white;
+        border: none;
+        padding: 15px;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      
+      .amount-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
+      }
+      
+      .amount-btn.active {
+        background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+        box-shadow: 0 0 20px rgba(251, 191, 36, 0.5);
+      }
+      
+      .custom-amount {
+        display: flex;
+        gap: 10px;
+      }
+      
+      .custom-amount input {
+        flex: 1;
+        background: rgba(30, 41, 59, 0.8);
+        border: 1px solid rgba(255, 165, 0, 0.3);
+        color: #fbbf24;
+        padding: 12px;
+        border-radius: 8px;
+        font-size: 16px;
+      }
+      
+      .custom-amount input::placeholder {
+        color: #64748b;
+      }
+      
+      .custom-amount button {
+        background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      
+      .custom-amount button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
+      }
+      
+      .qr-section {
+        background: rgba(30, 41, 59, 0.6);
+        border: 1px solid rgba(255, 165, 0, 0.2);
+        border-radius: 15px;
+        padding: 25px;
+        margin-bottom: 25px;
+        text-align: center;
+      }
+      
+      .qr-label {
+        color: #94a3b8;
+        font-size: 13px;
+        margin-bottom: 15px;
+        display: block;
+      }
+      
+      .qr-placeholder {
+        background: rgba(15, 23, 42, 0.8);
+        width: 200px;
+        height: 200px;
+        margin: 0 auto;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #64748b;
+        font-size: 14px;
+        border: 2px dashed rgba(255, 165, 0, 0.3);
+      }
+      
+      .address-section {
+        background: rgba(30, 41, 59, 0.6);
+        border: 1px solid rgba(255, 165, 0, 0.2);
+        border-radius: 15px;
+        padding: 15px;
+        margin-bottom: 25px;
+      }
+      
+      .address-label {
+        color: #94a3b8;
+        font-size: 12px;
+        margin-bottom: 10px;
+        display: block;
+      }
+      
+      .address-box {
+        background: rgba(15, 23, 42, 0.8);
+        color: #fbbf24;
+        padding: 12px;
+        border-radius: 8px;
+        font-size: 12px;
+        word-break: break-all;
+        font-family: 'Courier New', monospace;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+      }
+      
+      .copy-btn {
+        background: rgba(255, 165, 0, 0.2);
+        border: 1px solid rgba(255, 165, 0, 0.4);
+        color: #fbbf24;
+        padding: 6px 12px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 12px;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+      }
+      
+      .copy-btn:hover {
+        background: rgba(255, 165, 0, 0.3);
+      }
+      
+      .payment-method {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-bottom: 25px;
+      }
+      
+      .method-btn {
+        background: rgba(30, 41, 59, 0.8);
+        border: 2px solid rgba(255, 165, 0, 0.3);
+        color: #cbd5e1;
+        padding: 15px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 600;
+      }
+      
+      .method-btn.active {
+        border-color: #fbbf24;
+        background: rgba(251, 191, 36, 0.1);
+        color: #fbbf24;
+      }
+      
+      .method-btn:hover {
+        border-color: #fbbf24;
+      }
+      
+      .footer {
+        text-align: center;
+        color: #64748b;
+        font-size: 12px;
+        margin-top: 20px;
+      }
+      
+      .success-message {
+        display: none;
+        background: rgba(34, 197, 94, 0.1);
+        border: 1px solid rgba(34, 197, 94, 0.5);
+        color: #86efac;
+        padding: 15px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>⚡ Support Me</h1>
+        <p>Send sats and support my work</p>
+      </div>
+      
+      <div class="success-message" id="successMsg">
+        ✓ Address copied to clipboard!
+      </div>
+      
+      <div class="payment-method">
+        <button class="method-btn active" onclick="switchMethod('lightning')">⚡ Lightning</button>
+        <button class="method-btn" onclick="switchMethod('onchain')">₿ On-Chain</button>
+      </div>
+      
+      <div class="amount-section">
+        <label class="amount-label">Select Amount</label>
+        <div class="amount-buttons">
+          <button class="amount-btn" onclick="selectAmount(1000)">1,000 sats</button>
+          <button class="amount-btn" onclick="selectAmount(5000)">5,000 sats</button>
+          <button class="amount-btn" onclick="selectAmount(10000)">10,000 sats</button>
+          <button class="amount-btn" onclick="selectAmount(50000)">50,000 sats</button>
+        </div>
+        <div class="custom-amount">
+          <input type="number" id="customAmount" placeholder="Enter custom amount">
+          <button onclick="selectAmount(document.getElementById('customAmount').value)">Send</button>
+        </div>
+      </div>
+      
+      <div class="qr-section">
+        <label class="qr-label">Scan to Pay</label>
+        <div class="qr-placeholder" id="qrPlaceholder">
+          QR Code will appear here
+        </div>
+      </div>
+      
+      <div class="address-section">
+        <label class="address-label">Payment Address</label>
+        <div class="address-box">
+          <span id="addressText">lnbc10u1p3x4x...</span>
+          <button class="copy-btn" onclick="copyAddress()">Copy</button>
+        </div>
+      </div>
+      
+      <div class="footer">
+        <p>🔒 Payments are secure and processed via Lightning Network</p>
+      </div>
+    </div>
+    
+    <script>
+      let currentMethod = 'lightning';
+      let selectedAmount = 1000;
+      
+      // Sample addresses (replace with your actual addresses)
+      const addresses = {
+        lightning: 'lnbc10u1p3x4x7pp5example@lightning.address',
+        onchain: 'bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh'
+      };
+      
+      function switchMethod(method) {
+        currentMethod = method;
+        document.querySelectorAll('.method-btn').forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+        updateAddress();
+      }
+      
+      function selectAmount(amount) {
+        selectedAmount = amount;
+        document.querySelectorAll('.amount-btn').forEach(btn => btn.classList.remove('active'));
+        if (event.target.classList.contains('amount-btn')) {
+          event.target.classList.add('active');
+        }
+        updateAddress();
+      }
+      
+      function updateAddress() {
+        const address = addresses[currentMethod];
+        document.getElementById('addressText').textContent = address;
+        // In a real app, you'd generate a QR code here
+        document.getElementById('qrPlaceholder').textContent = `QR Code for ${selectedAmount} sats (${currentMethod})`;
+      }
+      
+      function copyAddress() {
+        const address = document.getElementById('addressText').textContent;
+        navigator.clipboard.writeText(address).then(() => {
+          const msg = document.getElementById('successMsg');
+          msg.style.display = 'block';
+          setTimeout(() => msg.style.display = 'none', 3000);
+        });
+      }
+    </script>
+  </body>
+    </html>
